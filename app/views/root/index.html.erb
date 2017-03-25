@@ -2,3 +2,13 @@
 <h1>Hello</h1>
 <p>Bブランチにいます</p>
 
+
+<% if current_user.present? %>
+  <p>ログインしています</p>
+  <p>ニックネーム：<%= current_user.nickname %></p>
+  <p>メールアドレス：<%= current_user.email %></p>
+  <!-- ログアウトを呼ぶ -->
+  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<% else %>
+  <p>ログインまたは会員登録をしてください</p>
+<% end %>
